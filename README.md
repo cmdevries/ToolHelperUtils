@@ -1,7 +1,7 @@
 # ToolHelperUtils
 
 This package creates intentionally broken tools, helpers, and utils packages
-to discourage their use.
+to discourage their use
 
 ```python
 >>> import helpers
