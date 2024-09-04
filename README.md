@@ -1,7 +1,6 @@
 # ToolHelperUtils
 
-This package creates intentionally broken tools, helpers, and utils packages
-to discourage their use
+This package creates an intentionally broken import interceptor for modules containing broken tool, helper, and utils packagesto discourage their use
 
 ```python
 >>> import tool_helper_utils
