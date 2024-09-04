@@ -14,4 +14,5 @@ class StopItImportHook(importlib.abc.MetaPathFinder, importlib.abc.Loader):
     def find_spec(self, fullname, path=None, target=None):
         return self.find_module(fullname)
 
+
 sys.meta_path.insert(0, StopItImportHook())
