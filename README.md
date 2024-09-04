@@ -4,8 +4,7 @@ This package creates an intentionally broken import interceptor for modules cont
 
 ```python
 >>> import tool_helper_utils
->>> import tool_helper_utils.foobar.best_tool_utils
-fullname='tool_helper_utils.foobar'
+>>> import tool_helper_utils.foobar.best_tools_utils
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
   File "<frozen importlib._bootstrap>", line 1354, in _find_and_load
