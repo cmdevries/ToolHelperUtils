@@ -5,7 +5,6 @@ import sys
 
 class StopItImportHook(importlib.abc.MetaPathFinder, importlib.abc.Loader):
     def find_module(self, fullname, path=None):
-        print(f"{fullname=}")
         if "tools" in fullname.lower() or "helper" in fullname.lower() \
             or "utils" in fullname.lower():
             raise ValueError("stop it")
