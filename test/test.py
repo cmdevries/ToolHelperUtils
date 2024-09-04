@@ -5,4 +5,4 @@ def test():
     with pytest.raises(ValueError) as e:
         import helper
     with pytest.raises(ValueError) as e:
-        import tool_helper_utils.foobar.best_tool 
+        import tool_helper_utils.foobar.best_tools
