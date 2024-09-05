@@ -12,7 +12,7 @@ class StopItImportHook(importlib.abc.MetaPathFinder, importlib.abc.Loader):
     )
 
     def find_module(self, fullname, path=None):
-        if any(x in fullname.lower() for x in BAD_IDEAS):
+        if any(x in fullname.lower() for x in self.BAD_IDEAS):
             raise ImportError("stop it")
         return None
 
