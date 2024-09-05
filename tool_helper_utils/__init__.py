@@ -4,7 +4,7 @@ import sys
 
 def factory_detector_factory():
     return "factory" 
-    
+
 
 class StopItImportHook(importlib.abc.MetaPathFinder, importlib.abc.Loader):
     BAD_IDEAS = (
