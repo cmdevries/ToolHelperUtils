@@ -1,13 +1,19 @@
 import importlib.abc
-import importlib.machinery
 import sys
 
 
 class StopItImportHook(importlib.abc.MetaPathFinder, importlib.abc.Loader):
+    BAD_IDEAS = (
+        "tool",
+        "helper",
+        "util",
+        "factory",
+        "builder",
+    )
+
     def find_module(self, fullname, path=None):
-        if "tools" in fullname.lower() or "helper" in fullname.lower() \
-            or "utils" in fullname.lower():
-            raise ValueError("stop it")
+        if any(x in fullname.lower() for x in BAD_IDEAS):
+            raise ImportError("stop it")
         return None
 
     def find_spec(self, fullname, path=None, target=None):
