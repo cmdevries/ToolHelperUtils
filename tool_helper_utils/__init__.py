@@ -2,8 +2,22 @@ import importlib.abc
 import sys
 
 
-def factory_detector_factory():
-    return "factory" 
+class AbstractBaseFactoryFactory:
+    def build():
+        return None
+
+
+class FactoryFactory(AbstractBaseFactoryFactory):
+    def __init__(self, factory):
+        self.factory = factory
+
+    def build(self):
+        return self.factory.get_bad_idea()
+       
+
+class FactoryBadIdea:
+    def get_bad_idea(self):
+        return "factory"
 
 
 class StopItImportHook(importlib.abc.MetaPathFinder, importlib.abc.Loader):
@@ -11,7 +25,7 @@ class StopItImportHook(importlib.abc.MetaPathFinder, importlib.abc.Loader):
         "tool",
         "helper",
         "util",
-        factory_detector_factory(),
+        FactoryFactory(FactoryBadIdea()).build(),
         "builder",
     )
 
