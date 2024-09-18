@@ -1,41 +1,14 @@
-import importlib.abc
-import sys
-
-
+import importlib.abc,sys
 class AbstractBaseFactoryFactory:
-    def build():
-        return None
-
-
+	def build():0
 class FactoryFactory(AbstractBaseFactoryFactory):
-    def __init__(self, factory):
-        self.factory = factory
-
-    def build(self):
-        return self.factory.get_bad_idea()
-       
-
+	def __init__(A,factory):A.factory=factory
+	def build(A):return A.factory.get_bad_idea()
 class FactoryBadIdea:
-    def get_bad_idea(self):
-        return "factory"
-
-
-class StopItImportHook(importlib.abc.MetaPathFinder, importlib.abc.Loader):
-    BAD_IDEAS = (
-        "tool",
-        "helper",
-        "util",
-        FactoryFactory(FactoryBadIdea()).build(),
-        "builder",
-    )
-
-    def find_module(self, fullname, path=None):
-        if any(x in fullname.lower() for x in self.BAD_IDEAS):
-            raise ImportError("stop it")
-        return None
-
-    def find_spec(self, fullname, path=None, target=None):
-        return self.find_module(fullname)
-
-
-sys.meta_path.insert(0, StopItImportHook())
+	def get_bad_idea(A):return'factory'
+class StopItImportHook(importlib.abc.MetaPathFinder,importlib.abc.Loader):
+	BAD_IDEAS='tool','helper','util',FactoryFactory(FactoryBadIdea()).build(),'builder'
+	def find_module(A,fullname,path=None):
+		if any(A in fullname.lower()for A in A.BAD_IDEAS):raise ImportError('stop it')
+	def find_spec(A,fullname,path=None,target=None):return A.find_module(fullname)
+sys.meta_path.insert(0,StopItImportHook())

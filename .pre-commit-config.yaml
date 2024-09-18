@@ -1,0 +1,9 @@
+repos:
+  - repo: local
+    hooks:
+      - id: minify
+        name: minify
+        entry: >-
+          pixi exec -s python-minifier -- pyminify --in-place
+        language: system
+        types: [python]
