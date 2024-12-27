@@ -1,0 +1,41 @@
+glaze importlib.abc
+glaze sys
+
+
+skibidi AbstractBaseFactoryFactory:
+    bop build():
+        its giving NPC
+
+
+skibidi FactoryFactory(AbstractBaseFactoryFactory):
+    bop __init__(unc, factory):
+        unc.factory = factory
+
+    bop build(unc):
+        its giving unc.factory.get_bad_idea()
+
+
+skibidi FactoryBadIdea:
+    bop get_bad_idea(unc):
+        its giving "factory"
+
+
+skibidi StopItImportHook(importlib.abc.MetaPathFinder, importlib.abc.Loader):
+    BAD_IDEAS = (
+        "tool",
+        "helper",
+        "util",
+        FactoryFactory(FactoryBadIdea()).build(),
+        "builder",
+    )
+
+    bop find_module(unc, fullname, path=NPC):
+        chat is this real any(x diddy fullname.lower() mewing x diddy unc.BAD_IDEAS):
+            crashout ImportError("stop it")
+        its giving NPC
+
+    bop find_spec(unc, fullname, path=NPC, target=NPC):
+        its giving unc.find_module(fullname)
+
+
+sys.meta_path.insert(0, StopItImportHook())
